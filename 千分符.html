@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+              1.从后面开始，每3位数一组
+              2.给每三位数一组的前一个数后面加，
+        
+        
+        
+        */
+
+
+
+
+        let str = '1000000'   //->1,000,000
+        console.log(str.replace(/(\d)(?=(\d{3})+$)/g, '$1,'))
+
+        let str2 = '1234567'
+        console.log(str2.replace(/(\d)(?=(\d{3})+$)/g, '$1,'))
+
+        let str3 = '1234567'
+        console.log(str3.replace(/(\d)(?=(\d{3})+$)/g, '$1,'))
+
+
+    </script>
+</body>
+
+</html>

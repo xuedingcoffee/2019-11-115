@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //传统方法
+        let str = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=js';
+        let ary = str.split('?')[1].split('&')
+        let obj = {}
+        for (var i = 0; i < ary.length; i++) {
+
+            let item = ary[i].split('=')
+
+            obj[item[0]] = item[1]
+        }
+        console.log(obj)
+
+        //用正则方法
+        let str3 = 'ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=js%20全角转半角%20正则&oq=%25E5%2585%25A8%25E8%25A7%2592%25E8%25BD%25AC%25E5%258D%258A%25E8%25A7%2592%2520%25E6%25AD%25A3%25E5%2588%2599&rsv_pq=ed9277970000f747&rsv_t=719cvLoB2Cy7pOW4%2F1hf3xOXnlRxJsSEPLA5xAfCoQ5RkeA6ruGTQ0OPjo4';
+        let reg = /^([a-z]\w{0,10})=([\w%-]+)/g;
+        let object = {}
+        str3.replace(reg, (...arg) => {
+            console.log(arg)
+        //["ie=utf-8", "ie", "utf-8", 0, "ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=js%20全…pOW4%2F1hf3xOXnlRxJsSEPLA5xAfCoQ5RkeA6ruGTQ0OPjo4"]
+            let a = arg[1]
+            let b = arg[2]
+            obj[a] = b
+        })
+        console.log(obj)
+
+    </script>
+</body>
+
+</html>

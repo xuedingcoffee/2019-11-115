@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+#box{
+    width:100px;
+    height:100px;
+    background: skyblue;
+    _display: none;
+    padding:50px;
+    border:1px solid #000;
+}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    /*
+    style是行内样式，样式表中的样式，通过.style是获取不出来的
+
+    获取属性结果：
+    A.带单位的:getComputedStyle()
+       getComputedStyle()的用法，有时候，某个元素的属性被隐藏，比如：display:none，但是又需要记录某个属性值，就需要用这个。
+    B.不带单位的：clientWidth/clientHeight/clientLeft/clientTop
+       client~用法，盒子可视的宽度(支持padding + border)
+    B.不带单位的：offsetWidth/offsetHeight
+ffsetWidth/offsetHeight，盒子可视的宽度(支持padding + border)
+    offsetParent:定位父级(元素)
+    offsetLeft/offsetTop  定位父级到当前元素的距离
+    C. scrollHeight被内容撑开的高度,不算边框的
+    */
+    console.log(getComputedStyle(box).width)   //即使有display:none，还是可以看到宽度，
+    
+    let {width,height}=getComputedStyle(box)
+    console.log(width,height)  
+
+    console.log(box.clientLeft) //必须在可视的情况下才可以得到
+
+
+    </script>
+</body>
+</html>
